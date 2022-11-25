@@ -18,13 +18,14 @@ defmodule PokemonCrater.PokemonsFixtures do
         level: 42,
         max_hp: 42,
         name: "some name",
-        pokedex_integer: 42,
+        pokedex_id: 42,
         special_atack: 42,
         special_defense: 42,
         speed: 42,
-        status_condition: "some status_condition",
-        type1: "some type1",
-        type2: "some type2"
+        status_condition: :paralized,
+        type1: :fire,
+        type2: nil,
+        nature: :timid
       })
       |> PokemonCrater.Pokemons.create_pokemon()
 
