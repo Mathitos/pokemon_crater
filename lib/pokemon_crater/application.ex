@@ -10,8 +10,6 @@ defmodule PokemonCrater.Application do
     children = [
       # Start the Ecto repository
       PokemonCrater.Repo,
-      # Start the Telemetry supervisor
-      PokemonCraterWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: PokemonCrater.PubSub},
       # Start the Endpoint (http/https)

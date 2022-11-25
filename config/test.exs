@@ -20,9 +20,6 @@ config :pokemon_crater, PokemonCraterWeb.Endpoint,
   secret_key_base: "XgxYMOkw/WGv6pcAtUM+rRQJJ4UrcUFZJn/qvW6CQFLnE0A3fQf0qv6QIQjgaAo/",
   server: false
 
-# In test we don't send emails.
-config :pokemon_crater, PokemonCrater.Mailer, adapter: Swoosh.Adapters.Test
-
 # Print only warnings and errors during test
 config :logger, level: :warn
 
