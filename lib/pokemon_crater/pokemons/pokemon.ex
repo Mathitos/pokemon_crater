@@ -2,6 +2,8 @@ defmodule PokemonCrater.Pokemons.Pokemon do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias PokemonCrater.Users.Trainer
+
   @natures [:docile, :brave, :timid]
   @condition_status [:poisoned, :paralized]
   @pokemon_types [:fire, :water, :grass]
@@ -25,6 +27,8 @@ defmodule PokemonCrater.Pokemons.Pokemon do
     field :type1, Ecto.Enum, values: @pokemon_types
     field :type2, Ecto.Enum, values: @pokemon_types
 
+    belongs_to :trainer, Trainer
+
     timestamps()
   end
 
@@ -46,7 +50,8 @@ defmodule PokemonCrater.Pokemons.Pokemon do
       :status_condition,
       :level,
       :experience,
-      :nature
+      :nature,
+      :trainer_id
     ])
     |> validate_required([
       :pokedex_id
