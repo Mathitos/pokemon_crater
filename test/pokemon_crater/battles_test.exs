@@ -3,8 +3,8 @@ defmodule PokemonCrater.BattlesTest do
 
   alias PokemonCrater.Battles
 
-  describe "battles" do
-    alias PokemonCrater.Battles.Battle
+  describe "battle_records" do
+    alias PokemonCrater.Battles.BattleRecord
 
     import PokemonCrater.BattlesFixtures
 
@@ -23,7 +23,7 @@ defmodule PokemonCrater.BattlesTest do
     test "create_battle/1 with valid data creates a battle" do
       valid_attrs = %{date: ~U[2022-11-24 04:22:00Z]}
 
-      assert {:ok, %Battle{} = battle} = Battles.create_battle(valid_attrs)
+      assert {:ok, %BattleRecord{} = battle} = Battles.create_battle(valid_attrs)
       assert battle.date == ~U[2022-11-24 04:22:00Z]
     end
 
@@ -35,7 +35,7 @@ defmodule PokemonCrater.BattlesTest do
       battle = battle_fixture()
       update_attrs = %{date: ~U[2022-11-25 04:22:00Z]}
 
-      assert {:ok, %Battle{} = battle} = Battles.update_battle(battle, update_attrs)
+      assert {:ok, %BattleRecord{} = battle} = Battles.update_battle(battle, update_attrs)
       assert battle.date == ~U[2022-11-25 04:22:00Z]
     end
 
@@ -47,7 +47,7 @@ defmodule PokemonCrater.BattlesTest do
 
     test "delete_battle/1 deletes the battle" do
       battle = battle_fixture()
-      assert {:ok, %Battle{}} = Battles.delete_battle(battle)
+      assert {:ok, %BattleRecord{}} = Battles.delete_battle(battle)
       assert_raise Ecto.NoResultsError, fn -> Battles.get_battle!(battle.id) end
     end
 

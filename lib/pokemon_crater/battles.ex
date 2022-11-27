@@ -6,7 +6,7 @@ defmodule PokemonCrater.Battles do
   import Ecto.Query, warn: false
   alias PokemonCrater.Repo
 
-  alias PokemonCrater.Battles.Battle
+  alias PokemonCrater.Battles.BattleRecord
 
   @doc """
   Returns the list of battles.
@@ -18,7 +18,7 @@ defmodule PokemonCrater.Battles do
 
   """
   def list_battles do
-    Repo.all(Battle)
+    Repo.all(BattleRecord)
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule PokemonCrater.Battles do
       ** (Ecto.NoResultsError)
 
   """
-  def get_battle!(id), do: Repo.get!(Battle, id)
+  def get_battle!(id), do: Repo.get!(BattleRecord, id)
 
   @doc """
   Creates a battle.
@@ -50,8 +50,8 @@ defmodule PokemonCrater.Battles do
 
   """
   def create_battle(attrs \\ %{}) do
-    %Battle{}
-    |> Battle.changeset(attrs)
+    %BattleRecord{}
+    |> BattleRecord.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -67,9 +67,9 @@ defmodule PokemonCrater.Battles do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_battle(%Battle{} = battle, attrs) do
+  def update_battle(%BattleRecord{} = battle, attrs) do
     battle
-    |> Battle.changeset(attrs)
+    |> BattleRecord.changeset(attrs)
     |> Repo.update()
   end
 
@@ -85,7 +85,7 @@ defmodule PokemonCrater.Battles do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_battle(%Battle{} = battle) do
+  def delete_battle(%BattleRecord{} = battle) do
     Repo.delete(battle)
   end
 
@@ -98,7 +98,7 @@ defmodule PokemonCrater.Battles do
       %Ecto.Changeset{data: %Battle{}}
 
   """
-  def change_battle(%Battle{} = battle, attrs \\ %{}) do
-    Battle.changeset(battle, attrs)
+  def change_battle(%BattleRecord{} = battle, attrs \\ %{}) do
+    BattleRecord.changeset(battle, attrs)
   end
 end

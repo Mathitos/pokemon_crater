@@ -1,10 +1,10 @@
-defmodule PokemonCrater.Battles.Battle do
+defmodule PokemonCrater.Battles.BattleRecord do
   use Ecto.Schema
   import Ecto.Changeset
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
-  schema "battles" do
+  schema "battle_records" do
     field :date, :utc_datetime
     field :first_trainer, :binary_id
     field :second_trainer, :binary_id
