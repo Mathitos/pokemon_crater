@@ -1,10 +1,9 @@
 defmodule PokemonCrater.Battles.BattleRoom do
   use GenServer
 
-  @type pokemon_battle_state() :: %{
-          name: String.t(),
-          pokedex_id: number()
-        }
+  alias PokemonCrater.Pokemons.Pokemon
+
+  @type pokemon_battle_state() :: Pokemon.t()
 
   @type player_battle_state() :: %{
           name: String.t(),
