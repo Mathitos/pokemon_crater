@@ -38,12 +38,12 @@ defmodule PokemonCrater.BattleRoomTest do
   defp first_player_fixture,
     do: %{
       name: "First Player",
-      pokemons: [%{name: "seedling", pokedex_id: 1}]
+      pokemons: [insert!(:pokemon)]
     }
 
   defp second_player_fixture,
     do: %{
       name: "Second Player",
-      pokemons: [%{name: "charmander", pokedex_id: 4}, %{name: "squirtle", pokedex_id: 7}]
+      pokemons: [insert!(:pokemon), insert!(:pokemon)]
     }
 end

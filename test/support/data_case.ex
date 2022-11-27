@@ -24,6 +24,7 @@ defmodule PokemonCrater.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import PokemonCrater.DataCase
+      import PokemonCrater.Factory
     end
   end
 
