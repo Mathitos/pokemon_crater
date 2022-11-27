@@ -3,102 +3,11 @@ defmodule PokemonCrater.Battles do
   The Battles context.
   """
 
-  import Ecto.Query, warn: false
-  alias PokemonCrater.Repo
+  alias PokemonCrater.Pokemons.Pokemon
 
-  alias PokemonCrater.Battles.BattleRecord
-
-  @doc """
-  Returns the list of battles.
-
-  ## Examples
-
-      iex> list_battles()
-      [%Battle{}, ...]
-
-  """
-  def list_battles do
-    Repo.all(BattleRecord)
-  end
-
-  @doc """
-  Gets a single battle.
-
-  Raises `Ecto.NoResultsError` if the Battle does not exist.
-
-  ## Examples
-
-      iex> get_battle!(123)
-      %Battle{}
-
-      iex> get_battle!(456)
-      ** (Ecto.NoResultsError)
-
-  """
-  def get_battle!(id), do: Repo.get!(BattleRecord, id)
-
-  @doc """
-  Creates a battle.
-
-  ## Examples
-
-      iex> create_battle(%{field: value})
-      {:ok, %Battle{}}
-
-      iex> create_battle(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def create_battle(attrs \\ %{}) do
-    %BattleRecord{}
-    |> BattleRecord.changeset(attrs)
-    |> Repo.insert()
-  end
-
-  @doc """
-  Updates a battle.
-
-  ## Examples
-
-      iex> update_battle(battle, %{field: new_value})
-      {:ok, %Battle{}}
-
-      iex> update_battle(battle, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def update_battle(%BattleRecord{} = battle, attrs) do
-    battle
-    |> BattleRecord.changeset(attrs)
-    |> Repo.update()
-  end
-
-  @doc """
-  Deletes a battle.
-
-  ## Examples
-
-      iex> delete_battle(battle)
-      {:ok, %Battle{}}
-
-      iex> delete_battle(battle)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_battle(%BattleRecord{} = battle) do
-    Repo.delete(battle)
-  end
-
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking battle changes.
-
-  ## Examples
-
-      iex> change_battle(battle)
-      %Ecto.Changeset{data: %Battle{}}
-
-  """
-  def change_battle(%BattleRecord{} = battle, attrs \\ %{}) do
-    BattleRecord.changeset(battle, attrs)
+  @spec calculate_attack_damage(move :: any(), attacker :: Pokemon.t(), defenser :: Pokemon.t()) ::
+          number()
+  def calculate_attack_damage(move, attacker, defenser) do
+    1
   end
 end
